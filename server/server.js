@@ -79,7 +79,7 @@ app.post('/search-and-inventory', async (req, res) => {
     
     const inventory = characterIds.reduce(async (accPromise, cur, index) => {
       const acc = await accPromise;
-      acc[cur] = { items: {} };
+      acc[cur] = { items: [] };
     
       for (let i = 0; i < itemsWithDetails[index].length; i++) {
         const item = itemsWithDetails[index][i];
