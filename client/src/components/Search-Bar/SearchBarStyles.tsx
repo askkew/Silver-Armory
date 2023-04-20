@@ -28,4 +28,11 @@ export const StyledInputField = styled('input')({
   },
 })
 
+export const StyledForm = styled('form')({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
+
 
