@@ -1,35 +1,84 @@
-import React, { useContext } from 'react';
-import { DataContext } from '../../utils/DataContext';
+import { GuardianInventoryContainer, ItemImageContainer, LeftColumn, RightColumn, SquareHover, TriangleHover } from './GuardianInventoryStyles';
 
-const GuardianInventory = () => {
-  const { data } = useContext(DataContext);
-  console.log('Data:', data);
+type CharacterInventoryProps = {
+  character: any;
+};
 
-  if (!data) {
-    return null;
-  }
-
+const GuardianInventory = ({ character }: CharacterInventoryProps) => {
   return (
-    <div>
-      <div>
-        {Object.entries(data.characters).map(([id, character]) => (
-          <div key={id}>
-            {/* @ts-ignore */}
-            {/* <h1 style={{color: 'white', margin: 10}}>{character.light}</h1> */}
-            <div>
-            {/* @ts-ignore */}
-              {character.items.map((item) => (
-                <img key={item.itemInstanceId} src={`https://www.bungie.net${item.itemDetails.displayProperties.icon}`} alt={`${item.itemDetails.displayProperties.name}`} />
-              ))}
-            </div>
-            {/* <img src={`https://www.bungie.net${character.items[0].itemDetails.displayProperties.icon}`} alt="Guardian-1" /> */}
-            {/* <p>First item hash: {character.items[0].itemHash}</p> */}
-            {/* <img src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1" /> */}
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+    <GuardianInventoryContainer>
+      <LeftColumn>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[11].itemDetails.displayProperties.icon}`} alt={`${character.items[11].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[11].itemDetails.iconWatermark}`} alt="" />
+          <TriangleHover className="trianglehover"></TriangleHover>
+          <TriangleHover className="trianglehover"></TriangleHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[0].itemDetails.displayProperties.icon}`} alt={`${character.items[0].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[0].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[1].itemDetails.displayProperties.icon}`} alt={`${character.items[1].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[1].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[2].itemDetails.displayProperties.icon}`} alt={`${character.items[2].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[2].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[8].itemDetails.displayProperties.icon}`} alt={`${character.items[8].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[8].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+      </LeftColumn>
+      <RightColumn>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[3].itemDetails.displayProperties.icon}`} alt={`${character.items[3].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[3].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[4].itemDetails.displayProperties.icon}`} alt={`${character.items[4].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[4].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[5].itemDetails.displayProperties.icon}`} alt={`${character.items[5].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[5].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[6].itemDetails.displayProperties.icon}`} alt={`${character.items[6].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[6].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+        <ItemImageContainer style={{ position: 'relative', display: 'inline-block'}}>
+          <img src={`https://www.bungie.net${character.items[7].itemDetails.displayProperties.icon}`} alt={`${character.items[7].itemDetails.displayProperties.name}`}/>
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[7].itemDetails.iconWatermark}`} alt="" />
+          <SquareHover></SquareHover>
+          <SquareHover></SquareHover>
+        </ItemImageContainer>
+      </RightColumn>
+      {/* {character.items.map((item: any) => (
+        <div style={{ position: 'relative', display: 'inline-block'}} key={item.itemInstanceId}>
+          <img src={`https://www.bungie.net${item.itemDetails.displayProperties.icon}`} alt={`${item.itemDetails.displayProperties.name}`} />
+          <img style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${item.itemDetails.iconWatermark}`} alt="" />
+        </div>
+      ))} */}
+    </GuardianInventoryContainer>
+  );
+};
 
 export default GuardianInventory

@@ -99,7 +99,7 @@ app.post('/search-and-inventory', async (req, res) => {
         });
     
         const { itemInstanceId } = item;
-        const itemInstanceResponse = await axios.get(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Item/${itemInstanceId}/?components=302`, {
+        const itemInstanceResponse = await axios.get(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Item/${itemInstanceId}/?components=305,302`, {
           headers: {
             'Content-Type': 'application/json',
             'X-API-Key': `${apiKey}`
