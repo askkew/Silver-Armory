@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 export const GuardianPageContainer = styled('div')({
   display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'top',
-  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'top',
   height: '100vh',
   width: '100vw',
   backgroundImage: 'url("https://i.imgur.com/p6KZ6v5.jpg")',
@@ -14,10 +14,14 @@ export const GuardianPageContainer = styled('div')({
 
 export const CharacterList = styled('div')({
   display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'top',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
   margin: '15px',
   gap: '15px',
+  "@media (max-width: 1268px)": {
+    flexDirection: 'column',
+  },
 })
 
 export const SearchContainer = styled('div')({

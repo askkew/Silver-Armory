@@ -13,3 +13,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.trianglehover {
+  transform: rotate(20deg); /* W3C */
+  -webkit-transform: rotate(20deg); /* Safari & Chrome */
+  -moz-transform: rotate(20deg); /* Firefox */
+  -ms-transform: rotate(20deg); /* Internet Explorer */
+  -o-transform: rotate(20deg); 
+}

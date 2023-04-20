@@ -1,23 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { DataContext } from '../../utils/DataContext';
 import { GuardianPageContainer, ImageContainer, SearchContainer, TextCustom, LightLevel, GuardianType, GuardianRace, CharacterList } from './GuardianPageStyles';
-
-type CharacterInventoryProps = {
-  character: any;
-};
-
-const CharacterInventory = ({ character }: CharacterInventoryProps) => {
-  return (
-    <div>
-      {character.items.map((item: any) => (
-        <div style={{ position: 'relative', display: 'inline-block'}} key={item.itemInstanceId}>
-          <img src={`https://www.bungie.net${item.itemDetails.displayProperties.icon}`} alt={`${item.itemDetails.displayProperties.name}`} />
-          <img style={{ position: 'absolute', top: 0, left: 0 }} src={`https://www.bungie.net${item.itemDetails.iconWatermark}`} alt="" />
-        </div>
-      ))}
-    </div>
-  );
-};
+import GuardianInventory from '../../components/GuardianInventory';
 
 const GuardianPage = () => {
   const { data } = useContext(DataContext);
@@ -63,7 +47,7 @@ const GuardianPage = () => {
           {/* @ts-ignore */}
             <ImageContainer onClick={() => setSelectedCharacter(character)}>
               {/* @ts-ignore */}
-              <img src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1"/>
+              <img src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1" height="95"/>
               <div className="image-overlay">
               {/* @ts-ignore */}
                 <LightLevel>{ character.light }</LightLevel>
@@ -79,7 +63,7 @@ const GuardianPage = () => {
         ))}
       </CharacterList>
       {selectedCharacter && (
-        <CharacterInventory character={selectedCharacter} />
+        <GuardianInventory character={selectedCharacter} />
       )}
     </GuardianPageContainer>
   )

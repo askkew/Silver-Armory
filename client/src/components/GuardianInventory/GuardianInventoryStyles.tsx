@@ -5,9 +5,79 @@ export const GuardianInventoryContainer = styled('div')({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '100vh',
-  width: '100vw',
-  backgroundImage: 'url("https://i.imgur.com/p6KZ6v5.jpg")',
+  height: '90vh',
+  width: '90vw',
+  backgroundImage: 'url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3046bb39-8dcd-46b8-a486-ce9ce67ae102/dbgudlw-97141612-452d-43f8-aeb1-6579ecc08ead.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMwNDZiYjM5LThkY2QtNDZiOC1hNDg2LWNlOWNlNjdhZTEwMlwvZGJndWRsdy05NzE0MTYxMi00NTJkLTQzZjgtYWViMS02NTc5ZWNjMDhlYWQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.S9j6g3vVbn7650ijG81Du-Kz_9LjVfc2cnCjzrc2fAI")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
+  overflow: 'hidden',
 })
+
+export const LeftColumn = styled('div')({
+  width: '40%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10px',
+  "@media (max-width: 1268px)": {
+    width: '30%',
+  },
+})
+
+export const RightColumn = styled('div')({
+  width: '40%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10px',
+  "@media (max-width: 1268px)": {
+    width: '30%',
+  },
+})
+
+export const ItemImageContainer = styled('div')({
+  cursor: 'pointer',
+  "&:hover": {
+    opacity: 0.8,
+    transition: 'all 0.3s ease-in-out',
+  },
+})
+
+export const SquareHover = styled('span')({
+  position: 'absolute',
+  bottom: '5px',
+  left: '-1px',
+  width: '100%',
+  height: '94%',
+  border: '2px solid gainsboro',
+  transform: "translateZ(0)",
+  outline: "2px solid gainsboro",
+  transitionProperty: "outline-offset, outline-color, background-color",
+  transitionDuration: "0.25s",
+  '&:hover': {
+    outlineOffset: "4px",
+  },
+})
+
+export const TriangleHover = styled('span')({
+  position: 'absolute',
+  bottom: '30px',
+  left: '28px',
+  width: '65%',
+  height: '64%',
+  border: '2px solid gainsboro',
+  outline: "2px solid gainsboro",
+  transitionProperty: "outline-offset, outline-color, background-color",
+  transitionDuration: "0.25s",
+  '&:hover': {
+    outlineOffset: "4px",
+  },
+  transform: 'rotate(45deg)',
+  '-webkit-transform': 'rotate(45deg)',
+  '-moz-transform': 'rotate(45deg)',
+  '-ms-transform': 'rotate(45deg)',
+  '-o-transform': 'rotate(45deg)',
+})
+
