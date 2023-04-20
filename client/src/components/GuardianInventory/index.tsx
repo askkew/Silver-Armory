@@ -1,53 +1,35 @@
-// import React, { useContext } from 'react';
-// import { DataContext } from '../../utils/DataContext';
-// import { GuardianInventoryContainer } from './GuardianInventoryStyles';
-export {}
-// interface InventoryItem {
-//   itemInstanceId: string;
-//   itemDetails?: {
-//     displayProperties?: {
-//       name: string;
-//       // Add other properties here as needed
-//     };
-//     // Add other properties here as needed
-//   };
-//   // Add other properties here as needed
-// }
+import React, { useContext } from 'react';
+import { DataContext } from '../../utils/DataContext';
 
-// interface Inventory {
-//   items: InventoryItem[];
-//   // Add other properties here as needed
-// }
+const GuardianInventory = () => {
+  const { data } = useContext(DataContext);
+  console.log('Data:', data);
 
-// interface Guardian {
-//   inventorys?: Record<string, Inventory>;
-//   // Add other properties here as needed
-// }
+  if (!data) {
+    return null;
+  }
 
-// const GuardianInventory: React.FC = () => {
-//   const { data } = useContext(DataContext);
-//   console.log('Data:', data);
+  return (
+    <div>
+      <div>
+        {Object.entries(data.characters).map(([id, character]) => (
+          <div key={id}>
+            {/* @ts-ignore */}
+            {/* <h1 style={{color: 'white', margin: 10}}>{character.light}</h1> */}
+            <div>
+            {/* @ts-ignore */}
+              {character.items.map((item) => (
+                <img key={item.itemInstanceId} src={`https://www.bungie.net${item.itemDetails.displayProperties.icon}`} alt={`${item.itemDetails.displayProperties.name}`} />
+              ))}
+            </div>
+            {/* <img src={`https://www.bungie.net${character.items[0].itemDetails.displayProperties.icon}`} alt="Guardian-1" /> */}
+            {/* <p>First item hash: {character.items[0].itemHash}</p> */}
+            {/* <img src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1" /> */}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
-//   return (
-//     <GuardianInventoryContainer>
-//       {data.inventorys &&
-//         Object.entries<Guardian['inventorys']>(data.inventorys).map(
-//           ([characterId, inventory]) => (
-//             <div key={characterId}>
-//               <h3>Character ID: {characterId}</h3>
-//               <ul>
-//                 {inventory.items.map((item: InventoryItem) => (
-//                   <li key={item.itemInstanceId}>
-//                     <h4>Item Name: {item.itemDetails?.displayProperties?.name}</h4>
-//                     {/* Render other properties for each item */}
-//                   </li>
-//                 ))}
-//               </ul>
-//             </div>
-//           )
-//         )}
-//     </GuardianInventoryContainer>
-//   );
-// };
-
-// export default GuardianInventory;
+export default GuardianInventory
