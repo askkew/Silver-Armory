@@ -52,8 +52,8 @@ app.post('/search-and-inventory', async (req, res) => {
       });
     }));
     
-    const inventoryData = inventoryResponse.map(response => response.data.Response);
-    const items = inventoryData.map(character => character.equipment.data.items);
+    const inventoryInfo = inventoryResponse.map(response => response.data.Response);
+    const items = inventoryInfo.map(character => character.equipment.data.items);
     
     const itemDetailsResponse = await Promise.all(
       items.flat().map(item => {
@@ -70,25 +70,33 @@ app.post('/search-and-inventory', async (req, res) => {
     const itemsWithDetails = items.map(characterItems => {
       return characterItems.map(item => {
         const itemDetails = itemDetailsData.find(details => details.hash === item.itemHash);
+        const { displayProperties, screenshot, iconWatermark, itemTypeAndTierDisplayName, itemTypeDisplayName } = itemDetails;
         return {
           ...item,
-          itemDetails
+          itemDetails: {
+            displayProperties,
+            screenshot,
+            iconWatermark,
+            itemTypeAndTierDisplayName,
+            itemTypeDisplayName
+          }
         };
       });
-    });
+    }); 
     
-    const inventory = characterIds.reduce(async (accPromise, cur, index) => {
+    const inventoryData = characterIds.reduce(async (accPromise, cur, index) => {
       const acc = await accPromise;
       acc[cur] = { items: [] };
     
       for (let i = 0; i < itemsWithDetails[index].length; i++) {
         const item = itemsWithDetails[index][i];
     
-        acc[cur].items[i] = {
+        acc[cur].items.push({
           itemHash: item.itemHash,
           itemInstanceId: item.itemInstanceId,
-          itemDetails: item.itemDetails
-        };
+          itemDetails: item.itemDetails,
+          itemInstanceData: null
+        });
     
         const { itemInstanceId } = item;
         const itemInstanceResponse = await axios.get(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Item/${itemInstanceId}/?components=302`, {
@@ -105,7 +113,8 @@ app.post('/search-and-inventory', async (req, res) => {
       return acc;
     }, {});
     
-    res.json({ characters: characterData, inventorys: await inventory });
+
+    res.json({ characters: characterData, inventories: await inventoryData });
 
   } catch (error) {
     console.error(error);
