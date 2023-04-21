@@ -146,6 +146,7 @@ export const PerkRow = styled('div')({
   position: 'absolute',
   top: '23%',
   left: '10px',
+  gap: '4px',
 })
 
 export const Perk = styled('img')({
