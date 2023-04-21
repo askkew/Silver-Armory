@@ -151,3 +151,36 @@ export const SubclassPerkGrid = styled('div')({
 
 export const SubclassPerk = styled('img')({
 })
+
+//------------------Stats------------------//
+
+export const Statcolumn = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'left',
+  position: 'absolute',
+  top: '40%',
+  left: '12px',
+})
+
+export const Statrow = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+})
+
+export const ItemStatlabel = styled('h1')({
+  color: 'white',
+  fontSize: '10px',
+  fontWeight: 500,
+  margin: 0,
+})
+
+export const ItemStatvalue = styled('h1')({
+  color: 'rgb(231, 207, 81)',
+  fontSize: '10px',
+  fontWeight: 500,
+  margin: 0,
+  position: 'relative',
+  left: '8px',
+  top: '0px',
+})
