@@ -13,32 +13,57 @@ export const GuardianInventoryContainer = styled('div')({
   overflow: 'hidden',
 })
 
+export const InventoryBox = styled('div')({
+  width: '60%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
+
 export const LeftColumn = styled('div')({
-  width: '40%',
+  width: '50%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   gap: '10px',
-  "@media (max-width: 1268px)": {
-    width: '30%',
-  },
+})
+
+export const RightColumnContainer = styled('div')({
+  width: '50%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // border: '1px solid green',
 })
 
 export const RightColumn = styled('div')({
-  width: '40%',
+  width: '25%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   gap: '10px',
-  "@media (max-width: 1268px)": {
-    width: '30%',
-  },
+  // border: '1px solid blue',
+  alignSelf: 'flex-start',
+})
+
+export const RightColumnStats = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  // border: '1px solid red',
+  alignSelf: 'flex-start',
+  height: '100%',
 })
 
 export const ItemImageContainer = styled('div')({
   cursor: 'pointer',
+})
+
+export const ItemImageIcon = styled('img')({
   "&:hover": {
     opacity: 0.8,
     transition: 'all 0.3s ease-in-out',
@@ -80,4 +105,38 @@ export const TriangleHover = styled('span')({
   '-ms-transform': 'rotate(45deg)',
   '-o-transform': 'rotate(45deg)',
 })
+
+export const Statname = styled('h1')({
+  fontSize: '1.5rem',
+  fontWeight: 600,
+  color: 'white',
+  textAlign: 'right',
+  margin: 0,
+})
+
+export const Statvalue = styled('h1')({
+  fontSize: '1.5rem',
+  fontWeight: 600,
+  color: 'white',
+  textAlign: 'right',
+  margin: 0,
+})
+
+export const Powertitle = styled('h1')({
+  fontSize: '30px',
+  fontWeight: 600,
+  color: 'white',
+  textAlign: 'right',
+  margin: 0,
+})
+
+export const Powervalue = styled('h1')({
+  color: 'rgb(231, 207, 81)',
+  fontSize: '50px',
+  fontWeight: 600,
+  textAlign: 'right',
+  margin: 0,
+  marginBottom: 80,
+})
+
 

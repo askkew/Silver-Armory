@@ -50,7 +50,7 @@ const GuardianPage = () => {
               <img src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1" height="95"/>
               <div className="image-overlay">
               {/* @ts-ignore */}
-                <LightLevel>{ character.light }</LightLevel>
+                <LightLevel><img style={{marginRight: '2px', marginBottom: '13px'}}src="./assets/powericon.png" height="15"/>{ character.light }</LightLevel>
                 <TextCustom>
               {/* @ts-ignore */}
                   <GuardianType>{ getClassName(character.classHash) }</GuardianType>

@@ -70,7 +70,7 @@ app.post('/search-and-inventory', async (req, res) => {
     const itemsWithDetails = items.map(characterItems => {
       return characterItems.map(item => {
         const itemDetails = itemDetailsData.find(details => details.hash === item.itemHash);
-        const { displayProperties, screenshot, iconWatermark, itemTypeAndTierDisplayName, itemTypeDisplayName } = itemDetails;
+        const { displayProperties, screenshot, iconWatermark, itemTypeAndTierDisplayName, itemTypeDisplayName, inventory } = itemDetails;
         return {
           ...item,
           itemDetails: {
@@ -78,7 +78,8 @@ app.post('/search-and-inventory', async (req, res) => {
             screenshot,
             iconWatermark,
             itemTypeAndTierDisplayName,
-            itemTypeDisplayName
+            itemTypeDisplayName,
+            inventory
           }
         };
       });
@@ -99,7 +100,7 @@ app.post('/search-and-inventory', async (req, res) => {
         });
     
         const { itemInstanceId } = item;
-        const itemInstanceResponse = await axios.get(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Item/${itemInstanceId}/?components=305,302`, {
+        const itemInstanceResponse = await axios.get(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Item/${itemInstanceId}/?components=305,302,300`, {
           headers: {
             'Content-Type': 'application/json',
             'X-API-Key': `${apiKey}`
