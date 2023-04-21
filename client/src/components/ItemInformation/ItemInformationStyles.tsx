@@ -125,6 +125,18 @@ export const ItemDescription = styled('h1')({
   fontWeight: 500,
 })
 
+export const ItemDamageType = styled('img')({
+  // position: 'absolute',
+  // top: '5%',
+  // left: '10px',
+  zIndex: 90,
+})
+
+export const ItemRowNameIcon = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+})
+
 //------------------Perks------------------//
 
 export const PerkRow = styled('div')({

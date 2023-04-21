@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Arc, ItemDescription, ItemInformationCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void } from '../ItemInformation/ItemInformationStyles';
+import { Arc, ItemDamageType, ItemDescription, ItemInformationCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemRowNameIcon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void } from '../ItemInformation/ItemInformationStyles';
 import { GuardianInventoryContainer, InventoryBox, ItemImageContainer, ItemImageIcon, LeftColumn, Powertitle, Powervalue, RightColumn, RightColumnContainer, RightColumnStats, SquareHover, Statvalue, TriangleHover } from './GuardianInventoryStyles';
 
 type CharacterInventoryProps = {
@@ -35,18 +35,24 @@ const getWeaponStat = (classHash: number): string => {
   }
 };
 
-// const getRaceName = (raceHash: number): string => {
-//   switch (raceHash) {
-//     case 3887404748:
-//       return 'Human';
-//     case 2803282938:
-//       return 'Awoken';
-//     case 898834093:
-//       return 'Exo';
-//     default:
-//       return 'Unknown';
-//   }
-// };
+const getDamageType = (raceHash: number): string => {
+  switch (raceHash) {
+    case 1847026933:
+      return 'Solar';
+    case 3373582085:
+      return 'Kinetic';
+    case 3454344768:
+      return 'Void';
+    case 2303181850:
+      return 'Arc';
+    case 151347233:
+      return 'Stasis';
+    case 3949783978:
+      return 'Strand';
+    default:
+      return 'Unknown';
+  }
+};
 
 const leftList = [11, 0, 1, 2, 8];
 const rightList = [3, 4, 5, 6, 7];
@@ -154,7 +160,24 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             {isSectionOpen('special') && (
               <ItemInformationCard>
                 <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[1].itemDetails.screenshot}`} alt={`${character.items[1].itemDetails.displayProperties.name}`} height="250"/>
-                <ItemName>{character.items[1].itemDetails.displayProperties.name}</ItemName>
+                <ItemRowNameIcon>
+                  <ItemName>{character.items[1].itemDetails.displayProperties.name}</ItemName>
+                  {/* {character.items[1].itemInstanceData.instance.data.damageTypeHash === 1847026933 ? (
+                    <ItemDamageType src="./assets/solaricon.png" height="15"/>
+                  ) : character.items[1].itemInstanceData.instance.data.damageTypeHash === 3373582085 ? (
+                    <ItemDamageType src="./assets/kineticicon.png" height="15"/>
+                  ) : character.items[1].itemInstanceData.instance.data.damageTypeHash === 3454344768 ? (
+                    <ItemDamageType src="./assets/voidicon.png" height="15"/>
+                  ) : character.items[1].itemInstanceData.instance.data.damageTypeHash === 2303181850 ? (
+                    <ItemDamageType src="./assets/arcicon.png" height="15"/>
+                  ) : character.items[1].itemInstanceData.instance.data.damageTypeHash === 151347233 ? (
+                    <ItemDamageType src="./assets/stasisicon.png" height="15"/>
+                  ) : character.items[1].itemInstanceData.instance.data.damageTypeHash === 3949783978 ? (
+                    <ItemDamageType src="./assets/strandicon.png" height="15"/>
+                  ) : (
+                    <span>test</span>
+                  )} */}
+                </ItemRowNameIcon>
                 <ItemLightLevel>{character.items[1].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[1].itemDetails.inventory.tierTypeHash === 2759499571 ? (
                   <ItemNameExotic></ItemNameExotic>

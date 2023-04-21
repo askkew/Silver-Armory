@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { SearchBarContainer, StyledForm, StyledInputField } from './SearchBarStyles'
 import { Button, TextField } from '@mui/material'
-import { StyledButton } from '../../utils'
+import { ButtonLabel, StyledButton } from '../../utils'
 import { DataContext } from '../../utils/DataContext'
 
 const SearchBar = () => {
@@ -53,7 +53,7 @@ const SearchBar = () => {
       <StyledForm onSubmit={handleSearch}>
         <StyledInputField type="text" placeholder="Bungie Display Name" id="displayName" required />
         <StyledInputField type="text" placeholder="Bungie Name Code" id="displayNameCode" required />
-        <StyledButton type="submit">Search</StyledButton>
+        <StyledButton type="submit"><ButtonLabel>Search</ButtonLabel></StyledButton>
       </StyledForm>
     </SearchBarContainer>
   )
