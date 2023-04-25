@@ -1,0 +1,55 @@
+client-----
+
+server-----
+
+links-----
+
+//gets all 3 characters
+https://data.destinysets.com/api/Destiny2.GetProfile?destinyMembershipId=4611686018428494348&membershipType=2&components=200
+
+//character details
+https://data.destinysets.com/api/Destiny2.GetCharacter/?destinyMembershipId=4611686018428494348&membershipType=2&components=205&characterId=2305843010124404029
+
+//item details
+https://data.destinysets.com/api/Destiny2.GetDestinyEntityDefinition?entityType=DestinyInventoryItemDefinition&hashIdentifier=3110377595%20
+
+then search by user name and number api call that I had on postman
+
+//item perks
+https://data.destinysets.com/api/Destiny2.GetItem?membershipType=2&itemInstanceId=6917529888843208136&destinyMembershipId=4611686018428494348&components=302
+
+
+steam = 3
+xbox = 1 
+psn = 2
+
+Human = 3887404748 
+Awoken = 2803282938 
+Exo = 898834093 
+
+Warlock = 2271682572 
+Hunter = 3655393761 
+Titan = 671679327 
+
+Human = 0
+Awoken =   1
+Exo =   2
+
+Warlock =   2
+Hunter =    1
+Titan =     0
+https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=200
+
+
+https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Character/${characterId}/?components=205
+
+https://www.bungie.net/Platform/Destiny2/Manifest/DestinyInventoryItemDefinition/${itemHash}/
+
+https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Item/${itemInstanceId}/?components=302
+
+itemDetails.displayProperties.icon
+itemDetails.displayProperties.name
+itemDetails.screenshot
+
+itemInstanceData.perks.data.perks[0].perkHash
+itemInstanceData.perks.data.perks[0].iconPath

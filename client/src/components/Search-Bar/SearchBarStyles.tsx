@@ -12,19 +12,28 @@ export const SearchBarContainer = styled('div')({
 })
 
 export const StyledInputField = styled('input')({
-	fontFamily: 'Poppins, sans-serif',
+	fontFamily: 'Futura, sans-serif',
   display: 'block',
   padding: '10px',
-  border: 'none',
-  outline: 'none',
-  borderRadius: '4px',
   font: 'inherit',
   margin: '10px',
   '::placeholder': {
     transition: 'opacity 0.25s',
+    color: 'white',
+    fontWeight: 500,
   },
   ':focus::placeholder': {
     opacity: 0,
+  },
+  border: '3px solid white',
+  color: 'white',
+  backgroundColor: 'rgb(194,187,178)',
+  cursor: 'pointer',
+  outline: "2px solid gainsboro",
+  transitionProperty: "outline-offset, outline-color, background-color",
+  transitionDuration: "0.25s",
+  '&:hover': {
+    outlineOffset: "2px",
   },
 })
 
