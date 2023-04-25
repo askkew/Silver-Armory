@@ -19,6 +19,7 @@ const SearchBar = () => {
     };
   
     fetch('http://localhost:5000/search-and-inventory', {
+      // fetch('https://silver-armory.herokuapp.com/search-and-inventory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

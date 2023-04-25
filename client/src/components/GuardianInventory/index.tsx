@@ -1,10 +1,58 @@
 import { useState } from 'react';
 import { Arc, ItemDamageType, ItemDescription, ItemInformationCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemRowNameIcon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void } from '../ItemInformation/ItemInformationStyles';
 import { GuardianInventoryContainer, InventoryBox, ItemImageContainer, ItemImageIcon, LeftColumn, Powertitle, Powervalue, RightColumn, RightColumnContainer, RightColumnStats, SquareHover, Statvalue, TriangleHover } from './GuardianInventoryStyles';
+import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+
+const data = [
+  {
+    name: 'Page A',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Page B',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Page C',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Page D',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Page E',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Page F',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+];
 
 type CharacterInventoryProps = {
   character: any;
 };
+
+
 
 const getWeaponStat = (classHash: number): string => {
   switch (classHash) {
@@ -34,6 +82,8 @@ const getWeaponStat = (classHash: number): string => {
       return 'Unknown';
   }
 };
+
+// impact, range, stability, handling, reload speed, rpm, mag
 
 const getDamageType = (raceHash: number): string => {
   switch (raceHash) {
@@ -136,9 +186,23 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                     )
                   })}
                 </PerkRow>
-                {/* Charting section for stats */}
                 <Statcolumn>
                 {Object.keys(character.items[0].itemInstanceData.stats.data.stats).map((statKey) => {
+                  const stat = character.items[0].itemInstanceData.stats.data.stats[statKey];
+                  const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
+                  return (
+                    <BarChart layout="vertical" width={180} height={20} data={data}>
+                      <XAxis type="number" hide />
+                      <YAxis type="category" width={60} dataKey="name" 
+                      // tick={(props) => (
+                      //   <text {...props} fontSize={10} />
+                      // )}
+                      />
+                      <Bar dataKey="value" fill="#fff" barSize={15} />
+                    </BarChart>
+                  );
+                })}
+                {/* {Object.keys(character.items[0].itemInstanceData.stats.data.stats).map((statKey) => {
                   const stat = character.items[0].itemInstanceData.stats.data.stats[statKey];
                   return (
                     <Statrow key={stat.statHash}>
@@ -146,9 +210,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       <ItemStatvalue>{stat.value}</ItemStatvalue>
                     </Statrow>
                   );
-                })}
+                })} */}
                 </Statcolumn>
-
               </ItemInformationCard>
             )}
           </ItemImageContainer>
