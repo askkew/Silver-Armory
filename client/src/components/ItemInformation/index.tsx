@@ -1,5 +1,5 @@
 import React from 'react'
-import { ItemInformationCard } from './ItemInformationStyles';
+import { WeaponInformationCard } from './ItemInformationStyles';
 
 type CharacterInventoryProps = {
   character: any;
@@ -7,9 +7,9 @@ type CharacterInventoryProps = {
 
 const ItemInformation = ({ character }: CharacterInventoryProps) => {
   return (
-    <ItemInformationCard>
+    <WeaponInformationCard>
       <img src={`https://www.bungie.net${character.items[0].itemDetails.displayProperties.icon}`} alt={`${character.items[0].itemDetails.displayProperties.name}`} height="20"/>
-    </ItemInformationCard>
+    </WeaponInformationCard>
   )
 }
 

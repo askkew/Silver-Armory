@@ -1,27 +1,66 @@
 import styled from "@emotion/styled";
 
-export const ItemInformationCard = styled('div')({
+export const WeaponInformationCard = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '440px',
-  height: '250px',
+  width: '520px',
+  height: '300px',
   border: '10px solid rgba(0, 0, 0, 0.5)',
   position: 'absolute',
   top: '4%',
-  right: '120%',
+  left: '70%',
   "&:hover": {
     opacity: 1,
   },
   overflow: 'hidden',
+  zIndex: 100,
+})
+
+export const ArmorInformatinCard = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '520px',
+  height: '300px',
+  border: '10px solid rgba(0, 0, 0, 0.5)',
+  position: 'absolute',
+  top: '4%',
+  right: '70%',
+  "&:hover": {
+    opacity: 1,
+  },
+  overflow: 'hidden',
+  zIndex: 100,
+})
+
+export const HeavyWeaponInformationCard = styled(WeaponInformationCard)({
+  top: '-150%',
+  left: '70%',
+})
+
+export const GhostShellInformationCard = styled(WeaponInformationCard)({
+  top: '-280%',
+  left: '70%',
+})
+
+export const BootsInformationCard = styled(ArmorInformatinCard)({
+  top: '-150%',
+  right: '70%',
+})
+
+export const ClassItemInformationCard = styled(ArmorInformatinCard)({
+  top: '-250%',
+  right: '70%',
 })
 
 //------------------Item Name------------------//
 
 export const ItemName = styled('h1')({
   position: 'absolute',
-  top: '-9%',
+  top: '-7%',
   left: '10px',
   color: 'white',
   fontSize: '28px',
@@ -31,11 +70,11 @@ export const ItemName = styled('h1')({
 
 export const ItemLightLevel = styled('h1')({
   position: 'absolute',
-  top: '-6%',
-  right: '10px',
+  top: '-9%',
+  right: '6px',
   color: 'rgb(231, 207, 81)',
   textShadow: '0px 0px 10px rgb(0, 0, 0, 0.251)',
-  fontSize: '23px',
+  fontSize: '35px',
   fontWeight: 500,
   zIndex: 90,
 })

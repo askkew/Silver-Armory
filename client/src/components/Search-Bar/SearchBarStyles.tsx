@@ -28,7 +28,6 @@ export const StyledInputField = styled('input')({
   border: '3px solid white',
   color: 'white',
   backgroundColor: 'rgb(194,187,178)',
-  cursor: 'pointer',
   outline: "2px solid gainsboro",
   transitionProperty: "outline-offset, outline-color, background-color",
   transitionDuration: "0.25s",
