@@ -220,6 +220,27 @@ export const Statrow = styled('div')({
   flexDirection: 'row',
 })
 
+export const ExtraStats = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+  position: 'absolute',
+  top: '95%',
+  left: '3%',
+})
+
+export const WeaponRPM = styled('h1')({
+  color: 'white',
+  fontSize: '13px',
+  marginRight: '10px',
+  fontWeight: 500,
+})
+
+export const MagSize = styled('h1')({
+  color: 'white',
+  fontSize: '13px',
+  fontWeight: 500,
+})
+
 export const ItemStatlabel = styled('h1')({
   color: 'white',
   fontSize: '10px',
