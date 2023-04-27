@@ -1,14 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, CSSProperties, useState, useEffect  } from 'react';
 import { SearchBarContainer, StyledForm, StyledInputField } from './SearchBarStyles'
 import { Button, TextField } from '@mui/material'
 import { ButtonLabel, StyledButton } from '../../utils'
 import { DataContext } from '../../utils/DataContext'
+import BarLoader from "react-spinners/BarLoader";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  color: "white",
+  position: "absolute",
+  left: "0%",
+  top: "70px",
+};
 
 const SearchBar = () => {
   const { setData } = useContext(DataContext);
+  let [loading, setLoading] = useState(false);
+  const [barWidth, setBarWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    if(window.innerWidth !== barWidth) {
+      setBarWidth(window.innerWidth);
+    }
+  }, [window.innerWidth]);
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(!loading);
   
     const displayName = event.currentTarget.displayName.value;
     const displayNameCode = event.currentTarget.displayNameCode.value;
@@ -43,6 +62,7 @@ const SearchBar = () => {
         }
   
         setData(responseData);
+        setLoading(loading);
       })
       .catch(error => {
         console.error(error);
@@ -56,6 +76,15 @@ const SearchBar = () => {
         <StyledInputField type="text" placeholder="Bungie Name Code" id="displayNameCode" required />
         <StyledButton type="submit"><ButtonLabel>Search</ButtonLabel></StyledButton>
       </StyledForm>
+      <BarLoader
+        loading={loading}
+        cssOverride={override}
+        height={4}
+        width={barWidth}
+        color={"#fff"}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </SearchBarContainer>
   )
 }

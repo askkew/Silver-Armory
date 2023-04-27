@@ -114,7 +114,7 @@ export const ItemNameCommon = styled(ItemNameBackground)({
 
 export const SubclassName = styled('h1')({
   position: 'absolute',
-  top: '-9%',
+  top: '-7%',
   left: '10px',
   color: 'white',
   fontSize: '28px',

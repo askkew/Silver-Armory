@@ -161,7 +161,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[0].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="30" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
