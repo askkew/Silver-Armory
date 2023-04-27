@@ -124,7 +124,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   <Strand></Strand>
                 )}
                 <SubclassPerkGrid>
-                  {character.items[11].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[11].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <SubclassPerk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -158,7 +158,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[0].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[0].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[0].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="30" />
@@ -232,7 +232,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[1].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[1].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[1].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -289,7 +289,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[2].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[2].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[2].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -332,7 +332,6 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <GhostShellInformationCard>
                 <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[8].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[8].itemDetails.displayProperties.name}</ItemName>
-                <ItemLightLevel>{character.items[8].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[8].itemDetails.inventory.tierTypeHash === 2759499571 ? (
                   <ItemNameExotic></ItemNameExotic>
                 ) : character.items[8].itemDetails.inventory.tierTypeHash === 4008398120 ? (
@@ -346,7 +345,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[8].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[8].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[8].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -394,7 +393,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[3].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[3].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[3].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -447,7 +446,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[4].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[4].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[4].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -500,7 +499,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[5].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[5].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[5].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -553,7 +552,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[6].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[6].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[6].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -606,7 +605,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[7].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[7].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[7].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
