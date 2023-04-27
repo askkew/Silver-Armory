@@ -114,7 +114,7 @@ export const ItemNameCommon = styled(ItemNameBackground)({
 
 export const SubclassName = styled('h1')({
   position: 'absolute',
-  top: '-9%',
+  top: '-7%',
   left: '10px',
   color: 'white',
   fontSize: '28px',
@@ -218,6 +218,27 @@ export const Statcolumn = styled('div')({
 export const Statrow = styled('div')({
   display: 'flex',
   flexDirection: 'row',
+})
+
+export const ExtraStats = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+  position: 'absolute',
+  top: '95%',
+  left: '3%',
+})
+
+export const WeaponRPM = styled('h1')({
+  color: 'white',
+  fontSize: '13px',
+  marginRight: '10px',
+  fontWeight: 500,
+})
+
+export const MagSize = styled('h1')({
+  color: 'white',
+  fontSize: '13px',
+  fontWeight: 500,
 })
 
 export const ItemStatlabel = styled('h1')({

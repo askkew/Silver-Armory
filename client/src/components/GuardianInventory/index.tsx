@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Arc, ItemDamageType, ItemDescription, WeaponInformationCard, ArmorInformatinCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemRowNameIcon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void, HeavyWeaponInformationCard, GhostShellInformationCard, BootsInformationCard, ClassItemInformationCard } from '../ItemInformation/ItemInformationStyles';
+import { Arc, ItemDamageType, ItemDescription, WeaponInformationCard, ArmorInformatinCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemRowNameIcon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void, HeavyWeaponInformationCard, GhostShellInformationCard, BootsInformationCard, ClassItemInformationCard, MagSize, WeaponRPM, ExtraStats } from '../ItemInformation/ItemInformationStyles';
 import { GuardianInventoryContainer, InventoryBox, ItemImageContainer, ItemImageIcon, LeftColumn, Powertitle, Powervalue, RightColumn, RightColumnContainer, RightColumnStats, SquareHover, Statvalue, TriangleHover } from './GuardianInventoryStyles';
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, LabelList, Label, Tooltip } from 'recharts';
 import { FaHandHoldingWater } from 'react-icons/fa';
@@ -124,7 +124,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   <Strand></Strand>
                 )}
                 <SubclassPerkGrid>
-                  {character.items[11].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[11].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <SubclassPerk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -158,7 +158,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[0].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[0].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[0].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -175,8 +175,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
                         <BarChart layout="vertical" width={180} height={30} data={data}>
-                          <XAxis type="number" hide />
-                          <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                          <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
+                          <YAxis type="category" width={60} dataKey="name" hide />
                           <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
                             <LabelList dataKey="value" position="right" fill="#fff" />
                             <LabelList dataKey="name" position="inside" fill="#fff" />
@@ -184,6 +184,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                         </BarChart>
                       );
                     })}
+                    <ExtraStats>
+                      <WeaponRPM>RPM: {character.items[0].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM>
+                      <MagSize>Magazine Size: {character.items[0].itemInstanceData.stats.data.stats[3871231066].value}</MagSize>
+                    </ExtraStats>
                 </Statcolumn>
               </WeaponInformationCard>
             )}
@@ -228,7 +232,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[1].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[1].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[1].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -245,8 +249,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
                         <BarChart layout="vertical" width={180} height={30} data={data}>
-                          <XAxis type="number" hide />
-                          <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                          <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
+                          <YAxis type="category" width={60} dataKey="name" hide />
                           <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
                             <LabelList dataKey="value" position="right" fill="#fff" />
                             <LabelList dataKey="name" position="inside" fill="#fff" />
@@ -254,6 +258,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                         </BarChart>
                       );
                     })}
+                    <ExtraStats>
+                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM>
+                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066].value}</MagSize>
+                    </ExtraStats>
                 </Statcolumn>
               </WeaponInformationCard>
             )}
@@ -281,7 +289,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[2].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[2].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[2].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -298,8 +306,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
                         <BarChart layout="vertical" width={180} height={30} data={data}>
-                          <XAxis type="number" hide />
-                          <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                          <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
+                          <YAxis type="category" width={60} dataKey="name" hide />
                           <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
                             <LabelList dataKey="value" position="right" fill="#fff" />
                             <LabelList dataKey="name" position="inside" fill="#fff" />
@@ -307,6 +315,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                         </BarChart>
                       );
                     })}
+                    <ExtraStats>
+                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM>
+                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066].value}</MagSize>
+                    </ExtraStats>
                 </Statcolumn>
               </HeavyWeaponInformationCard>
             )}
@@ -320,7 +332,6 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <GhostShellInformationCard>
                 <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[8].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[8].itemDetails.displayProperties.name}</ItemName>
-                <ItemLightLevel>{character.items[8].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[8].itemDetails.inventory.tierTypeHash === 2759499571 ? (
                   <ItemNameExotic></ItemNameExotic>
                 ) : character.items[8].itemDetails.inventory.tierTypeHash === 4008398120 ? (
@@ -334,7 +345,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[8].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[8].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[8].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -382,7 +393,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[3].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[3].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[3].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -396,13 +407,14 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   const stat = character.items[3].itemInstanceData.stats.data.stats[statKey];
                   const percentageValue = Math.floor((stat.value / 100) * 100);
                   const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
+                  const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
                     <BarChart layout="vertical" width={180} height={30} data={data}>
-                      <XAxis type="number" hide />
-                      <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                      <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
+                      <YAxis type="category" width={60} dataKey="name" hide />
                       <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
-                        <LabelList dataKey="value" position="right" fill="#fff" />
-                        <LabelList dataKey="name" position="inside" fill="#fff" />
+                        <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                        <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
                     </BarChart>
                   );
@@ -434,7 +446,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[4].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[4].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[4].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -446,14 +458,16 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 <Statcolumn>
                 {Object.keys(character.items[4].itemInstanceData.stats.data.stats).map((statKey) => {
                   const stat = character.items[4].itemInstanceData.stats.data.stats[statKey];
-                  const data = [{ name: getArmorStat(stat.statHash), value: stat.value }];
+                  const percentageValue = Math.floor((stat.value / 100) * 100);
+                  const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
+                  const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
                     <BarChart layout="vertical" width={180} height={30} data={data}>
-                      <XAxis type="number" hide />
-                      <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                      <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
+                      <YAxis type="category" width={60} dataKey="name" hide />
                       <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
-                        <LabelList dataKey="value" position="right" fill="#fff" />
-                        <LabelList dataKey="name" position="inside" fill="#fff" />
+                        <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                        <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
                     </BarChart>
                   );
@@ -485,7 +499,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[5].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[5].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[5].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -497,14 +511,16 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 <Statcolumn>
                 {Object.keys(character.items[5].itemInstanceData.stats.data.stats).map((statKey) => {
                   const stat = character.items[5].itemInstanceData.stats.data.stats[statKey];
-                  const data = [{ name: getArmorStat(stat.statHash), value: stat.value }];
+                  const percentageValue = Math.floor((stat.value / 100) * 100);
+                  const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
+                  const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
                     <BarChart layout="vertical" width={180} height={30} data={data}>
-                      <XAxis type="number" hide />
-                      <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                      <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
+                      <YAxis type="category" width={60} dataKey="name" hide />
                       <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
-                        <LabelList dataKey="value" position="right" fill="#fff" />
-                        <LabelList dataKey="name" position="inside" fill="#fff" />
+                        <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                        <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
                     </BarChart>
                   );
@@ -536,7 +552,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[6].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[6].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[6].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
@@ -548,14 +564,16 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 <Statcolumn>
                 {Object.keys(character.items[6].itemInstanceData.stats.data.stats).map((statKey) => {
                   const stat = character.items[6].itemInstanceData.stats.data.stats[statKey];
-                  const data = [{ name: getArmorStat(stat.statHash), value: stat.value }];
+                  const percentageValue = Math.floor((stat.value / 100) * 100);
+                  const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
+                  const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
                     <BarChart layout="vertical" width={180} height={30} data={data}>
-                      <XAxis type="number" hide />
-                      <YAxis type="category" width={60} dataKey="name" hide domain={[0, 200]} />
+                      <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
+                      <YAxis type="category" width={60} dataKey="name" hide />
                       <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
-                        <LabelList dataKey="value" position="right" fill="#fff" />
-                        <LabelList dataKey="name" position="inside" fill="#fff" />
+                        <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                        <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
                     </BarChart>
                   );
@@ -587,7 +605,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                 )}
                 <ItemDescription>{character.items[7].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
                 <PerkRow>
-                  {character.items[7].itemInstanceData.perks.data.perks.map((perk: any) => {
+                  {character.items[7].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
                         <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
