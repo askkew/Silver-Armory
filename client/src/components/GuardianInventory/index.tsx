@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Arc, ItemDamageType, ItemDescription, WeaponInformationCard, ArmorInformatinCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemRowNameIcon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void, HeavyWeaponInformationCard, GhostShellInformationCard, BootsInformationCard, ClassItemInformationCard, MagSize, WeaponRPM, ExtraStats } from '../ItemInformation/ItemInformationStyles';
 import { GuardianInventoryContainer, InventoryBox, ItemImageContainer, ItemImageIcon, LeftColumn, Powertitle, Powervalue, RightColumn, RightColumnContainer, RightColumnStats, SquareHover, Statvalue, TriangleHover } from './GuardianInventoryStyles';
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, LabelList, Label, Tooltip } from 'recharts';
-import { FaHandHoldingWater } from 'react-icons/fa';
 
 type CharacterInventoryProps = {
   character: any;
@@ -64,8 +63,6 @@ const getWeaponStat = (statHash: number): string => {
   }
 };
 
-// impact, range, stability, handling, reload speed, rpm, mag
-
 const getDamageType = (raceHash: number): string => {
   switch (raceHash) {
     case 1847026933:
@@ -112,13 +109,13 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <WeaponInformationCard>
                 <img src={`https://www.bungie.net${character.items[11].itemDetails.screenshot}`} alt={`${character.items[11].itemDetails.displayProperties.name}`} height="350"/>
                 <SubclassName>{character.items[11].itemDetails.displayProperties.name}</SubclassName>
-                {character.items[11].itemDetails.inventory.tierTypeHash === 3340296461 ? (
+                {['Gunslinger', 'Sunbreaker', 'Dawnblade'].includes(character.items[11].itemDetails.displayProperties.name) ? (
                   <Solar></Solar>
-                ) : character.items[11].itemDetails.inventory.tierTypeHash === 3340296461 ? (
+                ) : ['Nightstalker', 'Sentinel', 'Voidwalker'].includes(character.items[11].itemDetails.displayProperties.name) ? (
                   <Void></Void>
-                ) : character.items[11].itemDetails.inventory.tierTypeHash === 3340296461 ? (
+                ) : ['Arcstrider', 'Striker', 'Stormcaller'].includes(character.items[11].itemDetails.displayProperties.name) ? (
                   <Arc></Arc>
-                ) : character.items[11].itemDetails.inventory.tierTypeHash === 3340296461 ? (
+                ) : ['Revenant', 'Behemoth', 'Shadebinder'].includes(character.items[11].itemDetails.displayProperties.name) ? (
                   <Stasis></Stasis>
                 ) : (
                   <Strand></Strand>
@@ -357,6 +354,30 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               </GhostShellInformationCard>
             )}
           </ItemImageContainer>
+          <ItemImageContainer onClick={() => toggleSection('sparrow')} style={{ position: 'relative', display: 'inline-block'}}>
+            <ItemImageIcon src={`https://www.bungie.net${character.items[9].itemDetails.displayProperties.icon}`} alt={`${character.items[9].itemDetails.displayProperties.name}`}/>
+            <ItemImageIcon style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[9].itemDetails.iconWatermark}`} alt="" />
+            <SquareHover></SquareHover>
+            <SquareHover></SquareHover>
+            {isSectionOpen('sparrow') && (
+              <GhostShellInformationCard>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[9].itemDetails.screenshot}`} alt={`${character.items[9].itemDetails.displayProperties.name}`} height="350"/>
+                <ItemName>{character.items[9].itemDetails.displayProperties.name}</ItemName>
+                {character.items[9].itemDetails.inventory.tierTypeHash === 2759499571 ? (
+                  <ItemNameExotic></ItemNameExotic>
+                ) : character.items[9].itemDetails.inventory.tierTypeHash === 4008398120 ? (
+                  <ItemNameLegendary></ItemNameLegendary>
+                ) : character.items[9].itemDetails.inventory.tierTypeHash === 2127292149 ? (
+                  <ItemNameRare></ItemNameRare>
+                ) : character.items[9].itemDetails.inventory.tierTypeHash === 3340296461 ? (
+                  <ItemNameUncommon></ItemNameUncommon>
+                ) : (
+                  <ItemNameCommon></ItemNameCommon>
+                )}
+                <ItemDescription>{character.items[9].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
+              </GhostShellInformationCard>
+            )}
+          </ItemImageContainer>
         </LeftColumn>
         <RightColumnContainer>
           <RightColumnStats>
@@ -377,7 +398,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('helmet') && (
               <ArmorInformatinCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[3].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[3].itemDetails.screenshot}`} alt={`${character.items[3].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[3].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[3].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[3].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -430,7 +451,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('gauntlets') && (
               <ArmorInformatinCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[4].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[4].itemDetails.screenshot}`} alt={`${character.items[4].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[4].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[4].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[4].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -483,7 +504,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('chest') && (
               <ArmorInformatinCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[5].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[5].itemDetails.screenshot}`} alt={`${character.items[5].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[5].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[5].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[5].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -536,7 +557,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('legs') && (
               <BootsInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[6].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[6].itemDetails.screenshot}`} alt={`${character.items[6].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[6].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[6].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[6].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -589,7 +610,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('classitem') && (
               <ClassItemInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[7].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[7].itemDetails.screenshot}`} alt={`${character.items[7].itemDetails.displayProperties.name}`} height="350"/>
                 <ItemName>{character.items[7].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[7].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[7].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -614,6 +635,30 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                     )
                   })}
                 </PerkRow>
+              </ClassItemInformationCard>
+            )}
+            </ItemImageContainer>
+            <ItemImageContainer onClick={() => toggleSection('ship')} style={{ position: 'relative', display: 'inline-block'}}>
+              <ItemImageIcon src={`https://www.bungie.net${character.items[10].itemDetails.displayProperties.icon}`} alt={`${character.items[10].itemDetails.displayProperties.name}`}/>
+              <ItemImageIcon style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[10].itemDetails.iconWatermark}`} alt="" />
+              <SquareHover></SquareHover>
+              <SquareHover></SquareHover>
+              {isSectionOpen('ship') && (
+              <ClassItemInformationCard>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[10].itemDetails.screenshot}`} alt={`${character.items[10].itemDetails.displayProperties.name}`} height="350"/>
+                <ItemName>{character.items[10].itemDetails.displayProperties.name}</ItemName>
+                {character.items[10].itemDetails.inventory.tierTypeHash === 2759499571 ? (
+                  <ItemNameExotic></ItemNameExotic>
+                ) : character.items[10].itemDetails.inventory.tierTypeHash === 4008398120 ? (
+                  <ItemNameLegendary></ItemNameLegendary>
+                ) : character.items[10].itemDetails.inventory.tierTypeHash === 2127292149 ? (
+                  <ItemNameRare></ItemNameRare>
+                ) : character.items[10].itemDetails.inventory.tierTypeHash === 3340296461 ? (
+                  <ItemNameUncommon></ItemNameUncommon>
+                ) : (
+                  <ItemNameCommon></ItemNameCommon>
+                )}
+                <ItemDescription>{character.items[10].itemDetails.itemTypeAndTierDisplayName}</ItemDescription>
               </ClassItemInformationCard>
             )}
             </ItemImageContainer>

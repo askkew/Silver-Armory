@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { DataContext } from '../../utils/DataContext';
 import { GuardianPageContainer, ImageContainer, SearchContainer, TextCustom, LightLevel, GuardianType, GuardianRace, CharacterList } from './GuardianPageStyles';
 import GuardianInventory from '../../components/GuardianInventory';
+import { EmblemHover } from '../../components/GuardianInventory/GuardianInventoryStyles';
 
 const GuardianPage = () => {
   const { data } = useContext(DataContext);
@@ -58,6 +59,8 @@ const GuardianPage = () => {
                   <GuardianRace>{ getRaceName(character.raceHash) }</GuardianRace>
                 </TextCustom>
               </div>
+              <EmblemHover></EmblemHover>
+              <EmblemHover></EmblemHover>
             </ImageContainer>
           </SearchContainer>
         ))}
