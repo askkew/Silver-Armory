@@ -4,6 +4,8 @@ import { Button, TextField } from '@mui/material'
 import { ButtonLabel, StyledButton } from '../../utils'
 import { DataContext } from '../../utils/DataContext'
 import BarLoader from "react-spinners/BarLoader";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const override: CSSProperties = {
   display: "block",
@@ -37,8 +39,8 @@ const SearchBar = () => {
       displayNameCode,
     };
   
-    fetch('http://localhost:5000/search-and-inventory', {
-      // fetch('https://silver-armory.herokuapp.com/search-and-inventory', {
+    // fetch('http://localhost:5000/search-and-inventory', {
+      fetch('http://ec2-18-216-130-139.us-east-2.compute.amazonaws.com:80/search-and-inventory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -66,6 +68,17 @@ const SearchBar = () => {
       })
       .catch(error => {
         console.error(error);
+        setLoading(loading);
+        toast.error('Error searching that account!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
       });
   };
 
