@@ -5,8 +5,8 @@ export const WeaponInformationCard = styled('div')({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '520px',
-  height: '300px',
+  width: '720px',
+  height: '420px',
   border: '10px solid rgba(0, 0, 0, 0.5)',
   position: 'absolute',
   top: '4%',
@@ -23,8 +23,8 @@ export const ArmorInformatinCard = styled('div')({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '520px',
-  height: '300px',
+  width: '720px',
+  height: '420px',
   border: '10px solid rgba(0, 0, 0, 0.5)',
   position: 'absolute',
   top: '4%',
@@ -42,7 +42,7 @@ export const HeavyWeaponInformationCard = styled(WeaponInformationCard)({
 })
 
 export const GhostShellInformationCard = styled(WeaponInformationCard)({
-  top: '-280%',
+  top: '-330%',
   left: '70%',
 })
 
@@ -52,7 +52,7 @@ export const BootsInformationCard = styled(ArmorInformatinCard)({
 })
 
 export const ClassItemInformationCard = styled(ArmorInformatinCard)({
-  top: '-250%',
+  top: '-320%',
   right: '70%',
 })
 
@@ -63,7 +63,7 @@ export const ItemName = styled('h1')({
   top: '-7%',
   left: '10px',
   color: 'white',
-  fontSize: '28px',
+  fontSize: '38px',
   fontWeight: 500,
   zIndex: 90,
 })
@@ -74,7 +74,7 @@ export const ItemLightLevel = styled('h1')({
   right: '6px',
   color: 'rgb(231, 207, 81)',
   textShadow: '0px 0px 10px rgb(0, 0, 0, 0.251)',
-  fontSize: '35px',
+  fontSize: '45px',
   fontWeight: 500,
   zIndex: 90,
 })
@@ -117,7 +117,7 @@ export const SubclassName = styled('h1')({
   top: '-7%',
   left: '10px',
   color: 'white',
-  fontSize: '28px',
+  fontSize: '38px',
   fontWeight: 500,
   zIndex: 90,
 })
@@ -160,7 +160,7 @@ export const ItemDescription = styled('h1')({
   top: '10%',
   left: '12px',
   color: 'white',
-  fontSize: '15px',
+  fontSize: '25px',
   fontWeight: 500,
 })
 
@@ -230,14 +230,14 @@ export const ExtraStats = styled('div')({
 
 export const WeaponRPM = styled('h1')({
   color: 'white',
-  fontSize: '13px',
+  fontSize: '15px',
   marginRight: '10px',
   fontWeight: 500,
 })
 
 export const MagSize = styled('h1')({
   color: 'white',
-  fontSize: '13px',
+  fontSize: '15px',
   fontWeight: 500,
 })
 
