@@ -107,7 +107,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             <TriangleHover className="trianglehover"></TriangleHover>
             {isSectionOpen('subclass') && (
               <WeaponInformationCard>
-                <img src={`https://www.bungie.net${character.items[11].itemDetails.screenshot}`} alt={`${character.items[11].itemDetails.displayProperties.name}`} height="350"/>
+                <img src={`https://www.bungie.net${character.items[11].itemDetails.screenshot}`} alt={`${character.items[11].itemDetails.displayProperties.name}`} height="450"/>
                 <SubclassName>{character.items[11].itemDetails.displayProperties.name}</SubclassName>
                 {['Gunslinger', 'Sunbreaker', 'Dawnblade'].includes(character.items[11].itemDetails.displayProperties.name) ? (
                   <Solar></Solar>
@@ -124,7 +124,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[11].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <SubclassPerk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <SubclassPerk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                       </>
                     )
                   })}
@@ -139,7 +139,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             <SquareHover></SquareHover>
             {isSectionOpen('primary') && (
               <WeaponInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[0].itemDetails.screenshot}`} alt={`${character.items[0].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[0].itemDetails.screenshot}`} alt={`${character.items[0].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[0].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[0].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[0].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -158,7 +158,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[0].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -171,10 +171,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       const stat = character.items[0].itemInstanceData.stats.data.stats[statKey];
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
-                        <BarChart layout="vertical" width={180} height={30} data={data}>
+                        <BarChart layout="vertical" width={200} height={40} data={data}>
                           <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
                           <YAxis type="category" width={60} dataKey="name" hide />
-                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                             <LabelList dataKey="value" position="right" fill="#fff" />
                             <LabelList dataKey="name" position="inside" fill="#fff" />
                           </Bar>
@@ -196,7 +196,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             <SquareHover></SquareHover>
             {isSectionOpen('special') && (
               <WeaponInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[1].itemDetails.screenshot}`} alt={`${character.items[1].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[1].itemDetails.screenshot}`} alt={`${character.items[1].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemRowNameIcon>
                   <ItemName>{character.items[1].itemDetails.displayProperties.name}</ItemName>
                   {/* {character.items[1].itemInstanceData.instance.data.damageTypeHash === 1847026933 ? (
@@ -232,7 +232,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[1].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -245,10 +245,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       const stat = character.items[1].itemInstanceData.stats.data.stats[statKey];
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
-                        <BarChart layout="vertical" width={180} height={30} data={data}>
+                        <BarChart layout="vertical" width={200} height={40} data={data}>
                           <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
                           <YAxis type="category" width={60} dataKey="name" hide />
-                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                             <LabelList dataKey="value" position="right" fill="#fff" />
                             <LabelList dataKey="name" position="inside" fill="#fff" />
                           </Bar>
@@ -270,7 +270,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             <SquareHover></SquareHover>
             {isSectionOpen('heavy') && (
               <HeavyWeaponInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[2].itemDetails.screenshot}`} alt={`${character.items[2].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[2].itemDetails.screenshot}`} alt={`${character.items[2].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[2].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[2].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[2].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -289,7 +289,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[2].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -302,10 +302,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       const stat = character.items[2].itemInstanceData.stats.data.stats[statKey];
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
-                        <BarChart layout="vertical" width={180} height={30} data={data}>
+                        <BarChart layout="vertical" width={200} height={40} data={data}>
                           <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
                           <YAxis type="category" width={60} dataKey="name" hide />
-                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                             <LabelList dataKey="value" position="right" fill="#fff" />
                             <LabelList dataKey="name" position="inside" fill="#fff" />
                           </Bar>
@@ -327,7 +327,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             <SquareHover></SquareHover>
             {isSectionOpen('ghost') && (
               <GhostShellInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[8].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[8].itemDetails.screenshot}`} alt={`${character.items[8].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[8].itemDetails.displayProperties.name}</ItemName>
                 {character.items[8].itemDetails.inventory.tierTypeHash === 2759499571 ? (
                   <ItemNameExotic></ItemNameExotic>
@@ -345,7 +345,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[8].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -361,7 +361,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
             <SquareHover></SquareHover>
             {isSectionOpen('sparrow') && (
               <GhostShellInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[9].itemDetails.screenshot}`} alt={`${character.items[9].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[9].itemDetails.screenshot}`} alt={`${character.items[9].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[9].itemDetails.displayProperties.name}</ItemName>
                 {character.items[9].itemDetails.inventory.tierTypeHash === 2759499571 ? (
                   <ItemNameExotic></ItemNameExotic>
@@ -398,7 +398,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('helmet') && (
               <ArmorInformatinCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[3].itemDetails.screenshot}`} alt={`${character.items[3].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[3].itemDetails.screenshot}`} alt={`${character.items[3].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[3].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[3].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[3].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -417,7 +417,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[3].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -430,10 +430,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
                   const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
-                    <BarChart layout="vertical" width={180} height={30} data={data}>
+                    <BarChart layout="vertical" width={200} height={40} data={data}>
                       <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
                       <YAxis type="category" width={60} dataKey="name" hide />
-                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                         <LabelList dataKey="name" position={labelPosition} fill="#fff" />
                         <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
@@ -451,7 +451,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('gauntlets') && (
               <ArmorInformatinCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[4].itemDetails.screenshot}`} alt={`${character.items[4].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[4].itemDetails.screenshot}`} alt={`${character.items[4].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[4].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[4].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[4].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -470,7 +470,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[4].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -483,10 +483,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
                   const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
-                    <BarChart layout="vertical" width={180} height={30} data={data}>
+                    <BarChart layout="vertical" width={200} height={40} data={data}>
                       <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
                       <YAxis type="category" width={60} dataKey="name" hide />
-                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                         <LabelList dataKey="name" position={labelPosition} fill="#fff" />
                         <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
@@ -504,7 +504,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('chest') && (
               <ArmorInformatinCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[5].itemDetails.screenshot}`} alt={`${character.items[5].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[5].itemDetails.screenshot}`} alt={`${character.items[5].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[5].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[5].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[5].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -523,7 +523,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[5].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -536,10 +536,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
                   const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
-                    <BarChart layout="vertical" width={180} height={30} data={data}>
+                    <BarChart layout="vertical" width={200} height={40} data={data}>
                       <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
                       <YAxis type="category" width={60} dataKey="name" hide />
-                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                         <LabelList dataKey="name" position={labelPosition} fill="#fff" />
                         <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
@@ -557,7 +557,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('legs') && (
               <BootsInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[6].itemDetails.screenshot}`} alt={`${character.items[6].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[6].itemDetails.screenshot}`} alt={`${character.items[6].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[6].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[6].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[6].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -576,7 +576,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[6].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -589,10 +589,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   const data = [{ name: getArmorStat(stat.statHash), value: percentageValue }];
                   const labelPosition = percentageValue > 20 ? "inside" : "right";
                   return (
-                    <BarChart layout="vertical" width={180} height={30} data={data}>
+                    <BarChart layout="vertical" width={200} height={40} data={data}>
                       <XAxis type="number" hide domain={[0, 34]} allowDataOverflow={true}/>
                       <YAxis type="category" width={60} dataKey="name" hide />
-                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={30}>
+                      <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
                         <LabelList dataKey="name" position={labelPosition} fill="#fff" />
                         <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
                       </Bar>
@@ -610,7 +610,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('classitem') && (
               <ClassItemInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[7].itemDetails.screenshot}`} alt={`${character.items[7].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[7].itemDetails.screenshot}`} alt={`${character.items[7].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[7].itemDetails.displayProperties.name}</ItemName>
                 <ItemLightLevel>{character.items[7].itemInstanceData.instance.data.primaryStat.value}</ItemLightLevel>
                 {character.items[7].itemDetails.inventory.tierTypeHash === 2759499571 ? (
@@ -629,7 +629,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {character.items[7].itemInstanceData.perks?.data?.perks?.map((perk: any) => {
                     return (
                       <>
-                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="40" />
+                        <Perk src={`https://www.bungie.net${perk.iconPath}`} alt="" height="50" />
                         {/* <PerkName>{perk.displayProperties.name}</PerkName> */}
                       </>
                     )
@@ -645,7 +645,7 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
               <SquareHover></SquareHover>
               {isSectionOpen('ship') && (
               <ClassItemInformationCard>
-                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[10].itemDetails.screenshot}`} alt={`${character.items[10].itemDetails.displayProperties.name}`} height="350"/>
+                <img style={{overflow: 'hidden'}} src={`https://www.bungie.net${character.items[10].itemDetails.screenshot}`} alt={`${character.items[10].itemDetails.displayProperties.name}`} height="450"/>
                 <ItemName>{character.items[10].itemDetails.displayProperties.name}</ItemName>
                 {character.items[10].itemDetails.inventory.tierTypeHash === 2759499571 ? (
                   <ItemNameExotic></ItemNameExotic>
