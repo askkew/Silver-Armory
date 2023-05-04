@@ -6,6 +6,7 @@ import { DataContext } from '../../utils/DataContext'
 import BarLoader from "react-spinners/BarLoader";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Help from '../Help';
 
 const override: CSSProperties = {
   display: "block",
@@ -88,6 +89,7 @@ const SearchBar = () => {
         <StyledInputField type="text" placeholder="Bungie Display Name" id="displayName" required />
         <StyledInputField type="text" placeholder="Bungie Name Code" id="displayNameCode" required />
         <StyledButton type="submit"><ButtonLabel>Search</ButtonLabel></StyledButton>
+        <Help />
       </StyledForm>
       <BarLoader
         loading={loading}

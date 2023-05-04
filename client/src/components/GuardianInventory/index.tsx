@@ -182,8 +182,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       );
                     })}
                     <ExtraStats>
-                      <WeaponRPM>RPM: {character.items[0].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM>
-                      <MagSize>Magazine Size: {character.items[0].itemInstanceData.stats.data.stats[3871231066].value}</MagSize>
+                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? ` ${character.items[1].itemInstanceData.stats.data.stats[4284893193].value}` : ''}</WeaponRPM>
+                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize>
                     </ExtraStats>
                 </Statcolumn>
               </WeaponInformationCard>
@@ -256,8 +256,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       );
                     })}
                     <ExtraStats>
-                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM>
-                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066].value}</MagSize>
+                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? ` ${character.items[1].itemInstanceData.stats.data.stats[4284893193].value}` : ''}</WeaponRPM>
+                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize>
                     </ExtraStats>
                 </Statcolumn>
               </WeaponInformationCard>
@@ -313,8 +313,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                       );
                     })}
                     <ExtraStats>
-                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM>
-                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066].value}</MagSize>
+                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? ` ${character.items[1].itemInstanceData.stats.data.stats[4284893193].value}` : ''}</WeaponRPM>
+                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize>
                     </ExtraStats>
                 </Statcolumn>
               </HeavyWeaponInformationCard>

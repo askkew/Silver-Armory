@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { AiFillQuestionCircle } from 'react-icons/ai';
 
 export const SearchBarContainer = styled('div')({
   display: 'flex',
@@ -42,5 +43,3 @@ export const StyledForm = styled('form')({
   alignItems: 'center',
   justifyContent: 'center',
 })
-
-

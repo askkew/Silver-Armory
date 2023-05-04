@@ -8,7 +8,7 @@ export const StyledButton = styled('button')({
   color: 'white',
   font: 'inherit',
   margin: '10px',
-  backgroundColor: 'rgb(194,187,178)',
+  backgroundColor: 'rgb(68,115,68)',
   cursor: 'pointer',
   outline: "2px solid gainsboro",
   transitionProperty: "outline-offset, outline-color, background-color",
