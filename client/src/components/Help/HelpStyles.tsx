@@ -7,6 +7,9 @@ export const HelpContainer = styled('div')({
   alignItems: 'center',
   justifyContent: 'center',
   whiteSpace: 'nowrap',
+  '@media (max-width: 768px)': {
+    flexDirection: 'column',
+  }
 })
 
 export const TempText = styled('h1')({

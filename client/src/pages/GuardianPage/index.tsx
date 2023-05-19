@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { DataContext } from '../../utils/DataContext';
-import { GuardianPageContainer, ImageContainer, SearchContainer, TextCustom, LightLevel, GuardianType, GuardianRace, CharacterList } from './GuardianPageStyles';
+import { GuardianBannerIcon, GuardianBanner, GuardianPageContainer, ImageContainer, SearchContainer, LightLevel, GuardianType, GuardianRace, CharacterList } from './GuardianPageStyles';
 import GuardianInventory from '../../components/GuardianInventory';
-import { EmblemHover } from '../../components/GuardianInventory/GuardianInventoryStyles';
 
 const GuardianPage = () => {
   const { data } = useContext(DataContext);
@@ -48,19 +47,13 @@ const GuardianPage = () => {
           {/* @ts-ignore */}
             <ImageContainer onClick={() => setSelectedCharacter(character)}>
               {/* @ts-ignore */}
-              <img src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1" height="95"/>
-              <div className="image-overlay">
+              <GuardianBanner src={`https://www.bungie.net${character.emblemBackgroundPath}`} alt="Guardian-1" height="100"/>
               {/* @ts-ignore */}
-                <LightLevel><img style={{marginRight: '2px', marginBottom: '13px'}}src="./assets/powericon.png" height="15"/>{ character.light }</LightLevel>
-                <TextCustom>
+              <GuardianBannerIcon src={`https://www.bungie.net${character.emblemPath}`} alt="Guardian-1" height="100"/>
               {/* @ts-ignore */}
-                  <GuardianType>{ getClassName(character.classHash) }</GuardianType>
+              <GuardianType>{ getClassName(character.classHash) }</GuardianType>
               {/* @ts-ignore */}
-                  <GuardianRace>{ getRaceName(character.raceHash) }</GuardianRace>
-                </TextCustom>
-              </div>
-              <EmblemHover></EmblemHover>
-              <EmblemHover></EmblemHover>
+              <GuardianRace>{ getRaceName(character.raceHash) }</GuardianRace>
             </ImageContainer>
           </SearchContainer>
         ))}

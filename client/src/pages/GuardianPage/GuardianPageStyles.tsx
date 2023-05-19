@@ -15,61 +15,91 @@ export const GuardianPageContainer = styled('div')({
 export const CharacterList = styled('div')({
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'center',
+  justifyContent: 'space-evenly',
   alignItems: 'center',
   margin: '15px',
   gap: '15px',
-  "@media (max-width: 1268px)": {
-    flexDirection: 'column',
-  },
+  '@media (max-width: 668px)': {
+    gap: '25px',
+  }
 })
 
 export const SearchContainer = styled('div')({
-
+  position: 'relative',
+  cursor: 'pointer',
 })
 
 export const ImageContainer = styled('div')({
   position: 'relative',
-  display: 'inline-block',
-  cursor: 'pointer',
-  marginLeft: '30px',
-  marginRight: '30px',
-  "&:hover": {
-    opacity: 0.8,
-    // transform: 'scale(1.009)',
-    transition: 'all 0.3s ease-in-out',
+  display: 'flex',
+  alignItems: 'flex-start',
+})
+
+export const GuardianBanner = styled('img')({
+  width: 'clamp(200px, 100%, 470px)',
+  height: '100%',
+  border: '3px solid gainsboro',
+  transform: "translateZ(0)",
+  outline: "3px solid gainsboro",
+  transitionProperty: "outline-offset, outline-color, background-color",
+  transitionDuration: "0.25s",
+  '&:hover': {
+    outlineOffset: "2px",
   },
+  '@media (max-width: 668px)': {
+    display: 'none',
+  }
+})
+
+export const GuardianBannerIcon = styled('img')({
+  width: '100%',
+  height: '100%',
+  border: '3px solid gainsboro',
+  transform: "translateZ(0)",
+  outline: "3px solid gainsboro",
+  transitionProperty: "outline-offset, outline-color, background-color",
+  transitionDuration: "0.25s",
+  '&:hover': {
+    outlineOffset: "2px",
+  },
+  '@media (min-width: 668px)': {
+    display: 'none',
+  }
 })
 
 export const LightLevel = styled('span')({
-  position: 'absolute',
-  bottom: '50%',
-  right: '0%',
-  padding: '5px',
-  backgroundColor: 'transparent',
   color: 'rgb(231, 207, 81)',
-  fontSize: '38px',
   fontWeight: 450,
 })
 
-export const TextCustom = styled('div')({
-  position: 'absolute',
-  backgroundColor: 'transparent',
-  color: '#fff',
-  top: '35%',
-  left: '18%',
-  transform: 'translate(0, -50%)',
-  textAlign: 'left',
-})
-
 export const GuardianType = styled('h1')({
+  position: 'absolute',
+  bottom: '20%',
+  left: '15%',
+  padding: '10px',
+  fontSize: '2vw',
   color: '#fff',
-  fontSize: '28px',
   fontWeight: 400,
+  '@media (max-width: 668px)': {
+    display: 'none',
+  },
+  '@media (min-width: 2068px)': {
+    fontSize: '40px',
+  }
 })
 
 export const GuardianRace = styled('h1')({
+  position: 'absolute',
+  top: '20%',
+  left: '15%',
+  padding: '10px',
+  fontSize: '1.8vw',
   color: 'rgb(209, 209, 209)',
-  fontSize: '15px',
   fontWeight: 400,
+  '@media (max-width: 668px)': {
+    display: 'none',
+  },
+  '@media (min-width: 2068px)': {
+    fontSize: '35px',
+  }
 })

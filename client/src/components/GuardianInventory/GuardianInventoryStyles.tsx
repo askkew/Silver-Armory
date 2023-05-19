@@ -65,26 +65,30 @@ export const ItemImageContainer = styled('div')({
 })
 
 export const ItemImageIcon = styled('img')({
-  "&:hover": {
-    opacity: 0.8,
-    transition: 'all 0.3s ease-in-out',
-  },
+  width: '100px',
+  // "&:hover": {
+  //   opacity: 0.8,
+  //   transition: 'all 0.3s ease-in-out',
+  // },
+  '@media (max-width: 768px)': {
+    width: '50px',
+  }
 })
 
 export const EmblemHover = styled('span')({
-  position: 'absolute',
-  bottom: '4px',
-  left: '-1px',
-  width: '100%',
-  height: '94%',
-  border: '2px solid gainsboro',
-  transform: "translateZ(0)",
-  outline: "2px solid gainsboro",
-  transitionProperty: "outline-offset, outline-color, background-color",
-  transitionDuration: "0.25s",
-  '&:hover': {
-    outlineOffset: "4px",
-  },
+  // position: 'absolute',
+  // bottom: '4px',
+  // left: '-1px',
+  // width: '100%',
+  // height: '94%',
+  // border: '2px solid gainsboro',
+  // transform: "translateZ(0)",
+  // outline: "2px solid gainsboro",
+  // transitionProperty: "outline-offset, outline-color, background-color",
+  // transitionDuration: "0.25s",
+  // '&:hover': {
+  //   outlineOffset: "4px",
+  // },
 })
 
 export const SquareHover = styled('span')({

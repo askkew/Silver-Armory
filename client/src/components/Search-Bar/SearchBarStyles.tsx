@@ -6,8 +6,8 @@ export const SearchBarContainer = styled('div')({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '70px',
-  width: '400px',
+  width: '80%',
+  height: '10%',
   color: 'white',
   margin: 'auto',
 })
@@ -16,8 +16,8 @@ export const StyledInputField = styled('input')({
 	fontFamily: 'Futura, sans-serif',
   display: 'block',
   padding: '10px',
-  font: 'inherit',
   margin: '10px',
+  width: 'clamp(80px, 50%, 300px)',
   '::placeholder': {
     transition: 'opacity 0.25s',
     color: 'white',
@@ -35,6 +35,13 @@ export const StyledInputField = styled('input')({
   '&:hover': {
     outlineOffset: "2px",
   },
+  '@media (max-width: 768px)': {
+    margin: '5px',
+  }
+})
+
+export const CodeInputField = styled(StyledInputField)({
+  // width: 'clamp(80px, 50%, 300px)',
 })
 
 export const StyledForm = styled('form')({

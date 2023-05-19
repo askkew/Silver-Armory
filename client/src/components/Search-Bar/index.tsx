@@ -1,6 +1,5 @@
 import React, { useContext, CSSProperties, useState, useEffect  } from 'react';
-import { SearchBarContainer, StyledForm, StyledInputField } from './SearchBarStyles'
-import { Button, TextField } from '@mui/material'
+import { CodeInputField, SearchBarContainer, StyledForm, StyledInputField } from './SearchBarStyles'
 import { ButtonLabel, StyledButton } from '../../utils'
 import { DataContext } from '../../utils/DataContext'
 import BarLoader from "react-spinners/BarLoader";
@@ -14,7 +13,7 @@ const override: CSSProperties = {
   color: "white",
   position: "absolute",
   left: "0%",
-  top: "70px",
+  top: "65px",
 };
 
 const SearchBar = () => {
@@ -87,9 +86,9 @@ const SearchBar = () => {
     <SearchBarContainer>
       <StyledForm onSubmit={handleSearch}>
         <StyledInputField type="text" placeholder="Bungie Display Name" id="displayName" required />
-        <StyledInputField type="text" placeholder="Bungie Name Code" id="displayNameCode" required />
+        <CodeInputField type="text" placeholder="Name Code" id="displayNameCode" required />
         <StyledButton type="submit"><ButtonLabel>Search</ButtonLabel></StyledButton>
-        <Help />
+        {/* <Help /> */}
       </StyledForm>
       <BarLoader
         loading={loading}
