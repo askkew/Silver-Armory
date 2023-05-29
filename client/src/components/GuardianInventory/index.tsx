@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Arc, ItemDamageType, ItemDescription, WeaponInformationCard, ArmorInformatinCard, ItemLightLevel, ItemName, ItemNameCommon, ItemNameExotic, ItemNameLegendary, ItemNameRare, ItemNameUncommon, ItemRowNameIcon, ItemStatlabel, ItemStatvalue, Perk, PerkRow, Solar, Stasis, Statcolumn, Statrow, Strand, SubclassName, SubclassPerk, SubclassPerkGrid, Void, HeavyWeaponInformationCard, GhostShellInformationCard, BootsInformationCard, ClassItemInformationCard, MagSize, WeaponRPM, ExtraStats } from '../ItemInformation/ItemInformationStyles';
-import { GuardianInventoryContainer, InventoryBox, ItemImageContainer, ItemImageIcon, LeftColumn, Powertitle, Powervalue, RightColumn, RightColumnContainer, RightColumnStats, SquareHover, Statvalue, TriangleHover } from './GuardianInventoryStyles';
+import { GuardianInventoryContainer, InventoryBox, ItemImageContainer, ItemImageIcon, LeftColumn, Powertitle, Powervalue, RightColumn, RightColumnContainer, RightColumnStats, SquareHover, Statvalue, SubclassIcon, TriangleHover } from './GuardianInventoryStyles';
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, LabelList, Label, Tooltip } from 'recharts';
 
 type CharacterInventoryProps = {
@@ -101,8 +101,8 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
       <InventoryBox>
         <LeftColumn>
           <ItemImageContainer onClick={() => toggleSection('subclass')} style={{ position: 'relative', display: 'inline-block'}}>
-            <ItemImageIcon src={`https://www.bungie.net${character.items[11].itemDetails.displayProperties.icon}`} alt={`${character.items[11].itemDetails.displayProperties.name}`}/>
-            <ItemImageIcon style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[11].itemDetails.iconWatermark}`} alt="" />
+            <SubclassIcon src={`https://www.bungie.net${character.items[11].itemDetails.displayProperties.icon}`} alt={`${character.items[11].itemDetails.displayProperties.name}`}/>
+            <SubclassIcon style={{ position: 'absolute', top: 0, left: 0, }} src={`https://www.bungie.net${character.items[11].itemDetails.iconWatermark}`} alt="" />
             <TriangleHover className="trianglehover"></TriangleHover>
             <TriangleHover className="trianglehover"></TriangleHover>
             {isSectionOpen('subclass') && (
