@@ -58,6 +58,8 @@ const getWeaponStat = (statHash: number): string => {
       return 'Reload Speed';
     case 4284893193   :
       return 'RPM';
+    case 447667954 :
+      return 'Draw Speed';
     default:
       return 'Unknown';
   }
@@ -168,6 +170,24 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   {Object.keys(character.items[0].itemInstanceData.stats.data.stats)
                     .filter(statKey => desiredStats.includes(getWeaponStat(Number(statKey))))
                     .map((statKey) => {
+                    const stat = character.items[0].itemInstanceData.stats.data.stats[statKey];
+                    const percentageValue = Math.floor((stat.value / 100) * 100);
+                    const data = [{ name: getWeaponStat(stat.statHash), value: percentageValue }];
+                    const labelPosition = percentageValue > 30 ? "inside" : "right";
+                    return (
+                      <BarChart layout="vertical" width={200} height={40} data={data}>
+                        <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
+                        <YAxis type="category" width={60} dataKey="name" hide />
+                        <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
+                          <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                          <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
+                        </Bar>
+                      </BarChart>
+                    );
+                  })}
+                  {/* {Object.keys(character.items[0].itemInstanceData.stats.data.stats)
+                    .filter(statKey => desiredStats.includes(getWeaponStat(Number(statKey))))
+                    .map((statKey) => {
                       const stat = character.items[0].itemInstanceData.stats.data.stats[statKey];
                       const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
                       return (
@@ -180,10 +200,10 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                           </Bar>
                         </BarChart>
                       );
-                    })}
+                    })} */}
                     <ExtraStats>
-                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? ` ${character.items[1].itemInstanceData.stats.data.stats[4284893193].value}` : ''}</WeaponRPM>
-                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize>
+                      {character.items[0].itemInstanceData.stats.data.stats[4284893193] ? <WeaponRPM>RPM: {character.items[0].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM> : character.items[0].itemInstanceData.stats.data.stats[447667954] ? <WeaponRPM>Draw Speed: {character.items[0].itemInstanceData.stats.data.stats[447667954].value}</WeaponRPM> : ''}
+                      {character.items[0].itemInstanceData.stats.data.stats[3871231066] ? <MagSize>Magazine Size: {character.items[0].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[0].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize> : ''}
                     </ExtraStats>
                 </Statcolumn>
               </WeaponInformationCard>
@@ -239,25 +259,27 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   })}
                 </PerkRow>
                 <Statcolumn>
-                  {Object.keys(character.items[1].itemInstanceData.stats.data.stats)
+                {Object.keys(character.items[1].itemInstanceData.stats.data.stats)
                     .filter(statKey => desiredStats.includes(getWeaponStat(Number(statKey))))
                     .map((statKey) => {
-                      const stat = character.items[1].itemInstanceData.stats.data.stats[statKey];
-                      const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
-                      return (
-                        <BarChart layout="vertical" width={200} height={40} data={data}>
-                          <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
-                          <YAxis type="category" width={60} dataKey="name" hide />
-                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
-                            <LabelList dataKey="value" position="right" fill="#fff" />
-                            <LabelList dataKey="name" position="inside" fill="#fff" />
-                          </Bar>
-                        </BarChart>
-                      );
-                    })}
+                    const stat = character.items[1].itemInstanceData.stats.data.stats[statKey];
+                    const percentageValue = Math.floor((stat.value / 100) * 100);
+                    const data = [{ name: getWeaponStat(stat.statHash), value: percentageValue }];
+                    const labelPosition = percentageValue > 30 ? "inside" : "right";
+                    return (
+                      <BarChart layout="vertical" width={200} height={40} data={data}>
+                        <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
+                        <YAxis type="category" width={60} dataKey="name" hide />
+                        <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
+                          <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                          <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
+                        </Bar>
+                      </BarChart>
+                    );
+                  })}
                     <ExtraStats>
-                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? ` ${character.items[1].itemInstanceData.stats.data.stats[4284893193].value}` : ''}</WeaponRPM>
-                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize>
+                      {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM> : character.items[1].itemInstanceData.stats.data.stats[447667954] ? <WeaponRPM>Draw Speed: {character.items[1].itemInstanceData.stats.data.stats[447667954].value}</WeaponRPM> : ''}
+                      {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize> : ''}
                     </ExtraStats>
                 </Statcolumn>
               </WeaponInformationCard>
@@ -296,26 +318,28 @@ const GuardianInventory = ({ character }: CharacterInventoryProps) => {
                   })}
                 </PerkRow>
                 <Statcolumn>
-                  {Object.keys(character.items[2].itemInstanceData.stats.data.stats)
+                {Object.keys(character.items[2].itemInstanceData.stats.data.stats)
                     .filter(statKey => desiredStats.includes(getWeaponStat(Number(statKey))))
                     .map((statKey) => {
-                      const stat = character.items[2].itemInstanceData.stats.data.stats[statKey];
-                      const data = [{ name: getWeaponStat(stat.statHash), value: stat.value }];
-                      return (
-                        <BarChart layout="vertical" width={200} height={40} data={data}>
-                          <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
-                          <YAxis type="category" width={60} dataKey="name" hide />
-                          <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
-                            <LabelList dataKey="value" position="right" fill="#fff" />
-                            <LabelList dataKey="name" position="inside" fill="#fff" />
-                          </Bar>
-                        </BarChart>
-                      );
-                    })}
-                    <ExtraStats>
-                      <WeaponRPM>RPM: {character.items[1].itemInstanceData.stats.data.stats[4284893193] ? ` ${character.items[1].itemInstanceData.stats.data.stats[4284893193].value}` : ''}</WeaponRPM>
-                      <MagSize>Magazine Size: {character.items[1].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[1].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize>
-                    </ExtraStats>
+                    const stat = character.items[2].itemInstanceData.stats.data.stats[statKey];
+                    const percentageValue = Math.floor((stat.value / 100) * 100);
+                    const data = [{ name: getWeaponStat(stat.statHash), value: percentageValue }];
+                    const labelPosition = percentageValue > 30 ? "inside" : "right";
+                    return (
+                      <BarChart layout="vertical" width={200} height={40} data={data}>
+                        <XAxis type="number" hide domain={[0, 100]} allowDataOverflow={true}/>
+                        <YAxis type="category" width={60} dataKey="name" hide />
+                        <Bar dataKey="value" fill="rgba(255, 255, 255, 0.6)" barSize={40}>
+                          <LabelList dataKey="name" position={labelPosition} fill="#fff" />
+                          <LabelList dataKey="value" position={labelPosition === "inside" ? "right" : "inside"} fill="#fff" />
+                        </Bar>
+                      </BarChart>
+                    );
+                  })}
+                  <ExtraStats>
+                    {character.items[2].itemInstanceData.stats.data.stats[4284893193] ? <WeaponRPM>RPM: {character.items[2].itemInstanceData.stats.data.stats[4284893193].value}</WeaponRPM> : character.items[2].itemInstanceData.stats.data.stats[447667954] ? <WeaponRPM>Draw Speed: {character.items[2].itemInstanceData.stats.data.stats[447667954].value}</WeaponRPM> : ''}
+                    {character.items[2].itemInstanceData.stats.data.stats[3871231066] ? <MagSize>Magazine Size: {character.items[2].itemInstanceData.stats.data.stats[3871231066] ? ` ${character.items[2].itemInstanceData.stats.data.stats[3871231066].value}` : ''}</MagSize> : ''}
+                  </ExtraStats>
                 </Statcolumn>
               </HeavyWeaponInformationCard>
             )}
