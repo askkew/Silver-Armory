@@ -40,7 +40,8 @@ const SearchBar = () => {
     };
   
     // fetch('http://localhost:5000/search-and-inventory', {
-      fetch('https://ec2-3-145-151-91.us-east-2.compute.amazonaws.com/search-and-inventory', {
+      // fetch('https://ec2-3-145-151-91.us-east-2.compute.amazonaws.com/search-and-inventory', {
+      fetch('https://ec2-3-129-60-163.us-east-2.compute.amazonaws.com/search-and-inventory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
